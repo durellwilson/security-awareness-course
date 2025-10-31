@@ -2,6 +2,17 @@
 
 Comprehensive, **research-backed** course on detecting, preventing, and responding to AI security threats.
 
+## 📖 Read the Book
+
+**🌐 [View Online Book](https://durellwilson.github.io/security-awareness-course/)**
+
+The course is available as a beautifully formatted online book with:
+- Search functionality
+- Mobile responsive design
+- Dark theme
+- Easy navigation
+- Code syntax highlighting
+
 ## 📚 Course Modules
 
 ### Module 1: Deepfake Awareness
@@ -43,11 +54,9 @@ All content verified with **15+ authoritative sources**:
 - OWASP Top 10 for LLM Applications
 
 **Industry Reports:**
-- Sensity AI (2023) - State of Deepfakes
-- Microsoft Security (2024) - AI Red Team
-- IBM Security (2024) - Data Breach Costs
+- Sensity AI, Microsoft Security, IBM Security, Deloitte
 
-📖 See [Full Citations](./research/CITATIONS.md)
+📖 [Full Citations](./research/CITATIONS.md)
 
 ## 💻 Advanced Systems
 
@@ -61,15 +70,13 @@ All content verified with **15+ authoritative sources**:
 - Progress tracking
 - Personalized recommendations
 - Strength/weakness analysis
-- Peer comparison
 
 ### Storytelling Platform
 - Community knowledge sharing
 - Automatic content sanitization
 - Impact scoring
-- Verified submissions
 
-📐 See [System Architecture](./systems/ARCHITECTURE.md)
+📐 [System Architecture](./systems/ARCHITECTURE.md)
 
 ## 📊 Key Statistics
 
@@ -77,32 +84,18 @@ All content verified with **15+ authoritative sources**:
 - **96%** non-consensual content [Tolosana et al. 2020]
 - **500%** increase 2022-2024 [Sensity AI 2023]
 - **$250M+** fraud losses [Sensity AI 2023]
-- **$243K** average incident [Deloitte 2023]
 
 **Prompt Injections:**
 - **73%** of AI apps vulnerable [Liu et al. 2023]
 - **$4.5M** average breach cost [IBM 2024]
 - **300%** attack increase [Microsoft 2024]
 
-## 🎯 Learning Objectives
+## 🚀 Quick Start
 
-✅ Identify deepfake content with confidence
-✅ Understand prompt injection attack vectors
-✅ Implement prevention strategies
-✅ Execute emergency response plans
-✅ Apply security best practices
-
-## 🚀 Start Learning
-
-Begin with [Module 1: Deepfakes](./modules/01-deepfakes/)
-
-## 💡 What Makes This Different
-
-- **Research-Backed:** 15+ peer-reviewed sources
-- **Production Code:** Real Swift implementations
-- **Advanced Systems:** ML-based threat detection
-- **Community-Driven:** Storytelling platform
-- **Emergency Ready:** 24-hour response plans
+1. **Read Online**: [View the Book](https://durellwilson.github.io/security-awareness-course/)
+2. **Clone Repo**: `git clone https://github.com/durellwilson/security-awareness-course.git`
+3. **Explore Systems**: Check `/systems` for production code
+4. **Review Research**: See `/research` for citations
 
 ## 🤝 Contributing
 
@@ -113,3 +106,5 @@ Help expand this course! See [CONTRIBUTING.md](./CONTRIBUTING.md)
 Built for Detroit security community 🏙️
 
 **Research-backed • Production-ready • Community-driven**
+
+📖 **[Start Reading →](https://durellwilson.github.io/security-awareness-course/)**
