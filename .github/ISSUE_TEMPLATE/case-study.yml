@@ -1,0 +1,72 @@
+name: Case Study
+description: Document real-world security incident
+title: "[CASE] "
+labels: ["case-study", "documentation"]
+body:
+  - type: input
+    id: incident-name
+    attributes:
+      label: Incident Name
+      placeholder: "UK Energy Company CEO Voice Fraud"
+    validations:
+      required: true
+  
+  - type: input
+    id: date
+    attributes:
+      label: Date
+      description: When did this occur?
+      placeholder: "2019-03"
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: attack-type
+    attributes:
+      label: Attack Type
+      options:
+        - Deepfake Video
+        - Voice Cloning
+        - Prompt Injection
+        - Combined Attack
+    validations:
+      required: true
+  
+  - type: textarea
+    id: description
+    attributes:
+      label: Incident Description
+      description: What happened?
+    validations:
+      required: true
+  
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Financial, reputational, or other damages
+      placeholder: "$243,000 transferred to fraudulent account"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: detection
+    attributes:
+      label: How Was It Detected?
+      description: Detection method used
+  
+  - type: textarea
+    id: lessons
+    attributes:
+      label: Lessons Learned
+      description: Key takeaways and prevention recommendations
+    validations:
+      required: true
+  
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: News article or report link
+    validations:
+      required: true

@@ -1,0 +1,67 @@
+name: Research Contribution
+description: Submit peer-reviewed research findings
+title: "[RESEARCH] "
+labels: ["research", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for contributing research to the security awareness community!
+  
+  - type: input
+    id: paper-title
+    attributes:
+      label: Paper Title
+      description: Full title of the research paper
+      placeholder: "Deep Fakes: A Looming Challenge"
+    validations:
+      required: true
+  
+  - type: input
+    id: authors
+    attributes:
+      label: Authors
+      description: Paper authors
+      placeholder: "Chesney & Citron"
+    validations:
+      required: true
+  
+  - type: input
+    id: publication
+    attributes:
+      label: Publication
+      description: Journal/Conference name and year
+      placeholder: "California Law Review, 2019"
+    validations:
+      required: true
+  
+  - type: input
+    id: doi
+    attributes:
+      label: DOI or arXiv Link
+      description: Verification link
+      placeholder: "10.15779/Z38RV0D15J"
+    validations:
+      required: true
+  
+  - type: textarea
+    id: findings
+    attributes:
+      label: Key Findings
+      description: Main research findings relevant to security awareness
+      placeholder: "96% of deepfakes are non-consensual intimate content"
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Deepfakes
+        - Prompt Injection
+        - Detection Methods
+        - Legal/Policy
+        - Industry Standards
+    validations:
+      required: true

@@ -1,0 +1,62 @@
+name: Code Example
+description: Submit security code implementation
+title: "[CODE] "
+labels: ["code", "enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Submit production-ready security code examples!
+  
+  - type: dropdown
+    id: language
+    attributes:
+      label: Programming Language
+      options:
+        - Python
+        - Swift
+        - JavaScript
+        - Rust
+        - Other
+    validations:
+      required: true
+  
+  - type: dropdown
+    id: category
+    attributes:
+      label: Security Category
+      options:
+        - Detection
+        - Prevention
+        - Response
+        - Forensics
+    validations:
+      required: true
+  
+  - type: textarea
+    id: code
+    attributes:
+      label: Code Implementation
+      description: Minimal, secure code example
+      render: python
+    validations:
+      required: true
+  
+  - type: textarea
+    id: explanation
+    attributes:
+      label: Security Explanation
+      description: Explain security considerations
+    validations:
+      required: true
+  
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Security Checklist
+      options:
+        - label: Code is minimal and focused
+        - label: No hardcoded secrets
+        - label: Input validation included
+        - label: Error handling implemented
+        - label: Tested locally

@@ -2,53 +2,45 @@
 
 [Introduction](./introduction.md)
 
-# Deepfake Threats
+# Basics
 
-- [Understanding Deepfakes](./deepfakes/understanding.md)
-- [Detection Techniques](./deepfakes/detection.md)
-- [Prevention Strategies](./deepfakes/prevention.md)
-- [Emergency Response](./deepfakes/emergency.md)
+- [What are Deepfakes?](./basics/what-are-deepfakes.md)
+- [Types of Deepfakes](./basics/types-of-deepfakes.md)
+- [How Deepfakes Work](./basics/how-deepfakes-work.md)
+- [Prompt Injection](./basics/prompt-injection.md)
+- [Real-World Impact](./basics/real-world-impact.md)
 
-# Prompt Injection Attacks
+# Detection
 
-- [Understanding Attacks](./prompt-injection/understanding.md)
-- [Attack Vectors](./prompt-injection/vectors.md)
-- [Prevention & Mitigation](./prompt-injection/prevention.md)
-- [Incident Response](./prompt-injection/incident-response.md)
+- [Visual Detection](./detection/visual-detection.md)
+- [Audio Detection](./detection/audio-detection.md)
+- [Metadata Analysis](./detection/metadata-analysis.md)
+- [AI Detection Tools](./detection/ai-detection-tools.md)
+- [Prompt Injection Detection](./detection/prompt-detection.md)
 
-# Best Practices
+# Prevention
 
-- [Security Checklist](./best-practices/checklist.md)
-- [Code Examples](./best-practices/code-examples.md)
-- [Testing Strategies](./best-practices/testing.md)
+- [Authentication Methods](./prevention/authentication.md)
+- [Content Verification](./prevention/content-verification.md)
+- [Security Policies](./prevention/security-policies.md)
+- [Input Validation](./prevention/input-validation.md)
+- [Training & Awareness](./prevention/training.md)
 
-# Emergency Preparedness
+# Response
 
-- [Response Plans](./emergency/response-plans.md)
-- [Communication Templates](./emergency/templates.md)
-- [Recovery Procedures](./emergency/recovery.md)
-
-# Research & Evidence
-
-- [Citations](./research/citations.md)
-- [Statistics](./research/statistics.md)
-- [Case Studies](./case-studies/index.md)
-
-# Systems & Architecture
-
-- [Security Framework](./research/security-framework.md)
-- [Learning Analytics](./research/learning-analytics.md)
-- [Community Platform](./research/community-platform.md)
-
----
-
-[Contributing](./contributing.md)
-[Glossary](./glossary.md)
+- [Incident Response](./response/incident-response.md)
+- [Reporting Procedures](./response/reporting.md)
+- [Crisis Communication](./response/crisis-communication.md)
+- [Recovery Steps](./response/recovery.md)
 
 # Advanced Topics
 
-- [Advanced Detection Methods](./advanced/detection-methods.md)
+- [Detection Methods](./advanced/detection-methods.md)
 - [Forensic Analysis](./advanced/forensic-analysis.md)
 - [Legal Framework](./advanced/legal-framework.md)
 - [Industry Standards](./advanced/industry-standards.md)
 - [Threat Intelligence](./advanced/threat-intelligence.md)
+
+# Community
+
+- [Community Resources](./community/README.md)
