@@ -1,0 +1,23 @@
+[book]
+title = "Security Awareness: Deepfakes & Prompt Injections"
+authors = ["Detroit Security Community"]
+description = "Comprehensive, research-backed guide to AI security threats"
+language = "en"
+multilingual = false
+src = "src"
+
+[build]
+build-dir = "docs"
+
+[output.html]
+default-theme = "navy"
+preferred-dark-theme = "navy"
+git-repository-url = "https://github.com/durellwilson/security-awareness-course"
+edit-url-template = "https://github.com/durellwilson/security-awareness-course/edit/main/book/{path}"
+
+[output.html.search]
+enable = true
+
+[output.html.fold]
+enable = true
+level = 1
