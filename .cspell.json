@@ -1,0 +1,25 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "deepfake",
+    "deepfakes",
+    "mdBook",
+    "NIST",
+    "OWASP",
+    "MITRE",
+    "CISA",
+    "Sensity",
+    "Synthesia",
+    "Respeecher",
+    "DeepFaceLab",
+    "FaceSwap",
+    "jailbreak",
+    "Wav2Lip"
+  ],
+  "ignorePaths": [
+    "node_modules",
+    ".git",
+    "book/book"
+  ]
+}

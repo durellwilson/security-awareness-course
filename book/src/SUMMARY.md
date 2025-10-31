@@ -44,3 +44,11 @@
 
 [Contributing](./contributing.md)
 [Glossary](./glossary.md)
+
+# Advanced Topics
+
+- [Advanced Detection Methods](./advanced/detection-methods.md)
+- [Forensic Analysis](./advanced/forensic-analysis.md)
+- [Legal Framework](./advanced/legal-framework.md)
+- [Industry Standards](./advanced/industry-standards.md)
+- [Threat Intelligence](./advanced/threat-intelligence.md)
