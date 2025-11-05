@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Authentication Methods - Security Awareness: Deepfakes &amp; Prompt Injections</title>
+        <title>Prevention Strategies - Security Awareness: Deepfakes &amp; Prompt Injections</title>
 
 
         <!-- Custom HTML head -->
@@ -147,7 +147,7 @@
                         <a href="https://github.com/durellwilson/security-awareness-course" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        <a href="https://github.com/durellwilson/security-awareness-course/edit/main/book/src/prevention/authentication.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                        <a href="https://github.com/durellwilson/security-awareness-course/edit/main/book/src/deepfakes/prevention.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
 
@@ -181,17 +181,75 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="authentication-methods"><a class="header" href="#authentication-methods">Authentication Methods</a></h1>
+                        <h1 id="prevention-strategies"><a class="header" href="#prevention-strategies">Prevention Strategies</a></h1>
+<h2 id="personal-protection"><a class="header" href="#personal-protection">Personal Protection</a></h2>
+<h3 id="digital-hygiene"><a class="header" href="#digital-hygiene">Digital Hygiene</a></h3>
+<pre><code>✅ Limit public photos/videos
+✅ Use privacy settings on social media
+✅ Watermark personal content
+✅ Control biometric data sharing
+✅ Monitor your digital footprint
+</code></pre>
+<h3 id="verification-protocols"><a class="header" href="#verification-protocols">Verification Protocols</a></h3>
+<ol>
+<li><strong>Establish code words</strong> with family/colleagues</li>
+<li><strong>Use multi-factor authentication</strong></li>
+<li><strong>Verify requests through alternate channels</strong></li>
+<li><strong>Question urgent/unusual requests</strong></li>
+</ol>
+<h2 id="organizational-defense"><a class="header" href="#organizational-defense">Organizational Defense</a></h2>
+<h3 id="technical-controls"><a class="header" href="#technical-controls">Technical Controls</a></h3>
+<h4 id="content-authentication"><a class="header" href="#content-authentication">Content Authentication</a></h4>
+<pre><code class="language-python">import hashlib
+from datetime import datetime
+
+class ContentAuthenticator:
+    def sign_content(self, content_path):
+        with open(content_path, 'rb') as f:
+            content_hash = hashlib.sha256(f.read()).hexdigest()
+        
+        return {
+            'hash': content_hash,
+            'timestamp': datetime.utcnow().isoformat(),
+            'source': 'verified_source'
+        }
+    
+    def verify_content(self, content_path, signature):
+        with open(content_path, 'rb') as f:
+            current_hash = hashlib.sha256(f.read()).hexdigest()
+        return current_hash == signature['hash']
+</code></pre>
+<h3 id="policy-framework"><a class="header" href="#policy-framework">Policy Framework</a></h3>
+<h4 id="media-verification-policy"><a class="header" href="#media-verification-policy">Media Verification Policy</a></h4>
+<ol>
+<li>All external media must be verified before use</li>
+<li>Establish chain of custody for sensitive content</li>
+<li>Require multi-source confirmation for critical decisions</li>
+<li>Document verification steps</li>
+<li>Report suspicious content immediately</li>
+</ol>
+<h2 id="prevention-checklist"><a class="header" href="#prevention-checklist">Prevention Checklist</a></h2>
+<pre><code>□ Implement content authentication
+□ Train all employees
+□ Deploy detection tools
+□ Establish verification protocols
+□ Create incident response plan
+□ Monitor digital presence
+□ Maintain legal protections
+□ Regular security audits
+</code></pre>
+<hr />
+<p><strong>Next</strong>: <a href="./emergency.html">Emergency Response →</a></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../detection/prompt-detection.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../deepfakes/detection.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../prevention/content-verification.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../deepfakes/emergency.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -201,11 +259,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../detection/prompt-detection.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../deepfakes/detection.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../prevention/content-verification.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../deepfakes/emergency.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

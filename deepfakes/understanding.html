@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Recovery Steps - Security Awareness: Deepfakes &amp; Prompt Injections</title>
+        <title>Understanding Deepfakes - Security Awareness: Deepfakes &amp; Prompt Injections</title>
 
 
         <!-- Custom HTML head -->
@@ -147,7 +147,7 @@
                         <a href="https://github.com/durellwilson/security-awareness-course" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        <a href="https://github.com/durellwilson/security-awareness-course/edit/main/book/src/response/recovery.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                        <a href="https://github.com/durellwilson/security-awareness-course/edit/main/book/src/deepfakes/understanding.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
 
@@ -181,17 +181,110 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="recovery-steps"><a class="header" href="#recovery-steps">Recovery Steps</a></h1>
+                        <h1 id="understanding-deepfakes"><a class="header" href="#understanding-deepfakes">Understanding Deepfakes</a></h1>
+<h2 id="what-are-deepfakes"><a class="header" href="#what-are-deepfakes">What Are Deepfakes?</a></h2>
+<p>Deepfakes are <strong>synthetic media</strong> created using AI to manipulate or generate visual and audio content with high realism.</p>
+<h2 id="types-of-deepfakes"><a class="header" href="#types-of-deepfakes">Types of Deepfakes</a></h2>
+<h3 id="1-face-swaps"><a class="header" href="#1-face-swaps">1. Face Swaps</a></h3>
+<p>Replace one person's face with another in videos or images.</p>
+<p><strong>Risk</strong>: Identity theft, fraud, defamation</p>
+<h3 id="2-voice-cloning"><a class="header" href="#2-voice-cloning">2. Voice Cloning</a></h3>
+<p>Replicate someone's voice to generate fake audio.</p>
+<p><strong>Risk</strong>: Phone scams, authorization bypass</p>
+<h3 id="3-lip-sync-manipulation"><a class="header" href="#3-lip-sync-manipulation">3. Lip Sync Manipulation</a></h3>
+<p>Change what someone appears to say while maintaining facial features.</p>
+<p><strong>Risk</strong>: Misinformation, political manipulation</p>
+<h3 id="4-full-body-synthesis"><a class="header" href="#4-full-body-synthesis">4. Full Body Synthesis</a></h3>
+<p>Create entirely fake people with realistic movements.</p>
+<p><strong>Risk</strong>: Fake identities, catfishing</p>
+<h2 id="how-theyre-created"><a class="header" href="#how-theyre-created">How They're Created</a></h2>
+<h3 id="technology-stack"><a class="header" href="#technology-stack">Technology Stack</a></h3>
+<ol>
+<li><strong>GANs</strong> (Generative Adversarial Networks)</li>
+<li><strong>Autoencoders</strong> - Face mapping and reconstruction</li>
+<li><strong>Voice Synthesis</strong> - Text-to-speech AI models</li>
+<li><strong>Motion Capture</strong> - Body movement replication</li>
+</ol>
+<h3 id="common-tools"><a class="header" href="#common-tools">Common Tools</a></h3>
+<ul>
+<li>DeepFaceLab</li>
+<li>FaceSwap</li>
+<li>Wav2Lip</li>
+<li>First Order Motion Model</li>
+</ul>
+<h2 id="real-world-impact"><a class="header" href="#real-world-impact">Real-World Impact</a></h2>
+<h3 id="financial-fraud"><a class="header" href="#financial-fraud">Financial Fraud</a></h3>
+<blockquote>
+<p><strong>Case Study</strong>: In 2019, criminals used AI voice technology to impersonate a CEO, stealing <strong>$243,000</strong> from a UK energy company.</p>
+</blockquote>
+<h3 id="political-manipulation"><a class="header" href="#political-manipulation">Political Manipulation</a></h3>
+<ul>
+<li>Fake politician statements</li>
+<li>Election interference attempts</li>
+<li>Public opinion manipulation</li>
+</ul>
+<h3 id="personal-harm"><a class="header" href="#personal-harm">Personal Harm</a></h3>
+<ul>
+<li>Non-consensual intimate imagery (<strong>96%</strong> of deepfakes)</li>
+<li>Reputation damage</li>
+<li>Harassment campaigns</li>
+</ul>
+<h2 id="warning-signs"><a class="header" href="#warning-signs">Warning Signs</a></h2>
+<h3 id="visual-indicators"><a class="header" href="#visual-indicators">Visual Indicators</a></h3>
+<ul>
+<li>❌ Unnatural blinking patterns</li>
+<li>❌ Inconsistent lighting/shadows</li>
+<li>❌ Blurry face boundaries</li>
+<li>❌ Mismatched skin tones</li>
+<li>❌ Odd facial movements</li>
+<li>❌ Artifacts around hairline</li>
+</ul>
+<h3 id="audio-indicators"><a class="header" href="#audio-indicators">Audio Indicators</a></h3>
+<ul>
+<li>❌ Robotic speech patterns</li>
+<li>❌ Inconsistent background noise</li>
+<li>❌ Unnatural breathing</li>
+<li>❌ Pitch inconsistencies</li>
+<li>❌ Lack of emotional variation</li>
+</ul>
+<h2 id="statistics"><a class="header" href="#statistics">Statistics</a></h2>
+<blockquote>
+<p><strong>Source</strong>: Tolosana et al. (2020), <em>Information Fusion</em></p>
+</blockquote>
+<ul>
+<li><strong>96%</strong> of deepfakes are non-consensual intimate content</li>
+<li><strong>500%</strong> increase in incidents (2022-2024)</li>
+<li><strong>$250M+</strong> lost to deepfake fraud in 2023</li>
+</ul>
+<h2 id="research-citations"><a class="header" href="#research-citations">Research Citations</a></h2>
+<ol>
+<li>
+<p><strong>Chesney &amp; Citron (2019)</strong> - "Deep Fakes: A Looming Challenge"</p>
+<ul>
+<li><em>California Law Review</em>, 107(6), 1753-1820</li>
+<li>DOI: 10.15779/Z38RV0D15J</li>
+</ul>
+</li>
+<li>
+<p><strong>Tolosana et al. (2020)</strong> - "DeepFakes and Beyond"</p>
+<ul>
+<li><em>Information Fusion</em>, 64, 131-148</li>
+<li>DOI: 10.1016/j.inffus.2020.06.014</li>
+</ul>
+</li>
+</ol>
+<hr />
+<p><strong>Next</strong>: <a href="./detection.html">Detection Techniques →</a></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../response/crisis-communication.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../advanced/detection-methods.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../deepfakes/detection.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -201,11 +294,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../response/crisis-communication.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../advanced/detection-methods.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../deepfakes/detection.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

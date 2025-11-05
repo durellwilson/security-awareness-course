@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Metadata Analysis - Security Awareness: Deepfakes &amp; Prompt Injections</title>
+        <title>Prevention Methods - Security Awareness: Deepfakes &amp; Prompt Injections</title>
 
 
         <!-- Custom HTML head -->
@@ -147,7 +147,7 @@
                         <a href="https://github.com/durellwilson/security-awareness-course" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        <a href="https://github.com/durellwilson/security-awareness-course/edit/main/book/src/detection/metadata-analysis.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                        <a href="https://github.com/durellwilson/security-awareness-course/edit/main/book/src/prompt-injection/prevention.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
 
@@ -181,17 +181,84 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="metadata-analysis"><a class="header" href="#metadata-analysis">Metadata Analysis</a></h1>
+                        <h1 id="prevention--mitigation"><a class="header" href="#prevention--mitigation">Prevention &amp; Mitigation</a></h1>
+<h2 id="input-sanitization"><a class="header" href="#input-sanitization">Input Sanitization</a></h2>
+<pre><code class="language-swift">func sanitizeInput(_ input: String) -&gt; String {
+    var cleaned = input
+    let patterns = [
+        "ignore previous",
+        "system prompt",
+        "admin mode"
+    ]
+    
+    for pattern in patterns {
+        cleaned = cleaned.replacingOccurrences(
+            of: pattern,
+            with: "",
+            options: .caseInsensitive
+        )
+    }
+    
+    return cleaned
+}
+</code></pre>
+<h2 id="context-isolation"><a class="header" href="#context-isolation">Context Isolation</a></h2>
+<pre><code class="language-swift">actor SecureContext {
+    private let systemPrompt: String
+    
+    init() {
+        self.systemPrompt = loadSystemPrompt()
+    }
+    
+    func process(_ userInput: String) async -&gt; String {
+        // System prompt never exposed to user input
+        let sanitized = sanitizeInput(userInput)
+        return await generateResponse(sanitized)
+    }
+}
+</code></pre>
+<h2 id="rate-limiting"><a class="header" href="#rate-limiting">Rate Limiting</a></h2>
+<pre><code class="language-swift">actor RateLimiter {
+    private var requests: [String: [Date]] = [:]
+    
+    func checkLimit(for userId: String) async -&gt; Bool {
+        let now = Date()
+        var userRequests = requests[userId] ?? []
+        userRequests = userRequests.filter { 
+            now.timeIntervalSince($0) &lt; 60 
+        }
+        
+        guard userRequests.count &lt; 10 else { 
+            return false 
+        }
+        
+        userRequests.append(now)
+        requests[userId] = userRequests
+        return true
+    }
+}
+</code></pre>
+<h2 id="best-practices"><a class="header" href="#best-practices">Best Practices</a></h2>
+<ol>
+<li>✅ <strong>Never trust user input</strong></li>
+<li>✅ <strong>Validate and sanitize all inputs</strong></li>
+<li>✅ <strong>Isolate system prompts from user context</strong></li>
+<li>✅ <strong>Monitor for suspicious patterns</strong></li>
+<li>✅ <strong>Implement rate limiting</strong></li>
+<li>✅ <strong>Log security events</strong></li>
+</ol>
+<hr />
+<p><strong>Next</strong>: <a href="./incident-response.html">Incident Response →</a></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../detection/audio-detection.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../prompt-injection/vectors.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../detection/ai-detection-tools.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../prompt-injection/incident-response.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -201,11 +268,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../detection/audio-detection.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../prompt-injection/vectors.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../detection/ai-detection-tools.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../prompt-injection/incident-response.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

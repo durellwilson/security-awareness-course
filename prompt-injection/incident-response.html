@@ -147,7 +147,7 @@
                         <a href="https://github.com/durellwilson/security-awareness-course" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        <a href="https://github.com/durellwilson/security-awareness-course/edit/main/book/src/response/incident-response.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                        <a href="https://github.com/durellwilson/security-awareness-course/edit/main/book/src/prompt-injection/incident-response.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
 
@@ -182,16 +182,79 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="incident-response"><a class="header" href="#incident-response">Incident Response</a></h1>
+<h2 id="immediate-actions-0-1-hour"><a class="header" href="#immediate-actions-0-1-hour">Immediate Actions (0-1 Hour)</a></h2>
+<h3 id="1-isolate-affected-systems"><a class="header" href="#1-isolate-affected-systems">1. Isolate Affected Systems</a></h3>
+<pre><code class="language-bash"># Disable affected endpoints
+systemctl stop ai-service
+
+# Review recent logs
+tail -n 1000 /var/log/ai-service.log | grep -i "suspicious"
+</code></pre>
+<h3 id="2-identify-compromised-data"><a class="header" href="#2-identify-compromised-data">2. Identify Compromised Data</a></h3>
+<ul>
+<li>Review audit logs</li>
+<li>Check for data exfiltration</li>
+<li>Identify affected users</li>
+<li>Document timeline</li>
+</ul>
+<h3 id="3-activate-response-team"><a class="header" href="#3-activate-response-team">3. Activate Response Team</a></h3>
+<ul>
+<li>Incident Commander</li>
+<li>Technical Lead</li>
+<li>Security Analyst</li>
+<li>Legal Counsel</li>
+</ul>
+<h2 id="short-term-1-24-hours"><a class="header" href="#short-term-1-24-hours">Short-Term (1-24 Hours)</a></h2>
+<h3 id="patch-vulnerabilities"><a class="header" href="#patch-vulnerabilities">Patch Vulnerabilities</a></h3>
+<pre><code class="language-swift">// Update input validation
+func enhancedSanitize(_ input: String) -&gt; String {
+    // Add new patterns
+    // Strengthen validation
+    // Update threat detection
+}
+</code></pre>
+<h3 id="reset-credentials"><a class="header" href="#reset-credentials">Reset Credentials</a></h3>
+<ul>
+<li>Rotate API keys</li>
+<li>Update system prompts</li>
+<li>Reset user sessions</li>
+<li>Invalidate tokens</li>
+</ul>
+<h3 id="notify-affected-users"><a class="header" href="#notify-affected-users">Notify Affected Users</a></h3>
+<pre><code class="language-markdown">Subject: Security Incident Notification
+
+We detected a security incident affecting [scope].
+
+Actions taken:
+- Immediate system isolation
+- Vulnerability patched
+- Enhanced monitoring
+
+Your data: [Impact assessment]
+
+Contact: security@company.com
+</code></pre>
+<h2 id="recovery-24-hours"><a class="header" href="#recovery-24-hours">Recovery (24+ Hours)</a></h2>
+<h3 id="post-incident-review"><a class="header" href="#post-incident-review">Post-Incident Review</a></h3>
+<pre><code>□ Root cause identified
+□ Vulnerabilities patched
+□ Monitoring enhanced
+□ Team debriefed
+□ Procedures updated
+□ Training scheduled
+</code></pre>
+<hr />
+<p><strong>Next Module</strong>: <a href="../best-practices/checklist.html">Best Practices →</a></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../prevention/training.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../prompt-injection/prevention.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../response/reporting.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../best-practices/checklist.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -201,11 +264,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../prevention/training.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../prompt-injection/prevention.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../response/reporting.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../best-practices/checklist.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

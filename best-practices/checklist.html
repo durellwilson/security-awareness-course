@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>What are Deepfakes? - Security Awareness: Deepfakes &amp; Prompt Injections</title>
+        <title>Security Checklist - Security Awareness: Deepfakes &amp; Prompt Injections</title>
 
 
         <!-- Custom HTML head -->
@@ -147,7 +147,7 @@
                         <a href="https://github.com/durellwilson/security-awareness-course" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
-                        <a href="https://github.com/durellwilson/security-awareness-course/edit/main/book/src/basics/what-are-deepfakes.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                        <a href="https://github.com/durellwilson/security-awareness-course/edit/main/book/src/best-practices/checklist.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
                             <i id="git-edit-button" class="fa fa-edit"></i>
                         </a>
 
@@ -181,17 +181,46 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="what-are-deepfakes"><a class="header" href="#what-are-deepfakes">What are Deepfakes?</a></h1>
+                        <h1 id="security-checklist"><a class="header" href="#security-checklist">Security Checklist</a></h1>
+<h2 id="input-validation"><a class="header" href="#input-validation">Input Validation</a></h2>
+<ul>
+<li>✅ Sanitize all user input</li>
+<li>✅ Validate data types</li>
+<li>✅ Check input length</li>
+<li>✅ Filter dangerous patterns</li>
+<li>✅ Encode special characters</li>
+</ul>
+<h2 id="context-isolation"><a class="header" href="#context-isolation">Context Isolation</a></h2>
+<ul>
+<li>✅ Separate system and user prompts</li>
+<li>✅ Use dedicated contexts</li>
+<li>✅ Never expose system prompts</li>
+<li>✅ Implement privilege separation</li>
+</ul>
+<h2 id="output-filtering"><a class="header" href="#output-filtering">Output Filtering</a></h2>
+<ul>
+<li>✅ Remove sensitive information</li>
+<li>✅ Validate response format</li>
+<li>✅ Check for policy violations</li>
+<li>✅ Monitor output length</li>
+</ul>
+<h2 id="monitoring"><a class="header" href="#monitoring">Monitoring</a></h2>
+<ul>
+<li>✅ Log all interactions</li>
+<li>✅ Track anomalies</li>
+<li>✅ Set up alerts</li>
+<li>✅ Regular audits</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="../introduction.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="../prompt-injection/incident-response.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="../basics/types-of-deepfakes.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="../best-practices/code-examples.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -201,11 +230,11 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="../introduction.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="../prompt-injection/incident-response.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="../basics/types-of-deepfakes.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="../best-practices/code-examples.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
