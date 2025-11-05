@@ -2,36 +2,31 @@
 
 [Introduction](./introduction.md)
 
-# Basics
+# Deepfakes
 
-- [What are Deepfakes?](./basics/what-are-deepfakes.md)
-- [Types of Deepfakes](./basics/types-of-deepfakes.md)
-- [How Deepfakes Work](./basics/how-deepfakes-work.md)
-- [Prompt Injection](./basics/prompt-injection.md)
-- [Real-World Impact](./basics/real-world-impact.md)
+- [Understanding Deepfakes](./deepfakes/understanding.md)
+- [Detection Techniques](./deepfakes/detection.md)
+- [Prevention Strategies](./deepfakes/prevention.md)
+- [Emergency Response](./deepfakes/emergency.md)
 
-# Detection
+# Prompt Injection
 
-- [Visual Detection](./detection/visual-detection.md)
-- [Audio Detection](./detection/audio-detection.md)
-- [Metadata Analysis](./detection/metadata-analysis.md)
-- [AI Detection Tools](./detection/ai-detection-tools.md)
-- [Prompt Injection Detection](./detection/prompt-detection.md)
+- [Understanding Prompt Injection](./prompt-injection/understanding.md)
+- [Attack Vectors](./prompt-injection/vectors.md)
+- [Prevention Methods](./prompt-injection/prevention.md)
+- [Incident Response](./prompt-injection/incident-response.md)
 
-# Prevention
+# Best Practices
 
-- [Authentication Methods](./prevention/authentication.md)
-- [Content Verification](./prevention/content-verification.md)
-- [Security Policies](./prevention/security-policies.md)
-- [Input Validation](./prevention/input-validation.md)
-- [Training & Awareness](./prevention/training.md)
+- [Security Checklist](./best-practices/checklist.md)
+- [Code Examples](./best-practices/code-examples.md)
+- [Testing Strategies](./best-practices/testing.md)
 
-# Response
+# Emergency Response
 
-- [Incident Response](./response/incident-response.md)
-- [Reporting Procedures](./response/reporting.md)
-- [Crisis Communication](./response/crisis-communication.md)
-- [Recovery Steps](./response/recovery.md)
+- [Response Plans](./emergency/response-plans.md)
+- [Recovery Procedures](./emergency/recovery.md)
+- [Response Templates](./emergency/templates.md)
 
 # Advanced Topics
 
@@ -41,6 +36,10 @@
 - [Industry Standards](./advanced/industry-standards.md)
 - [Threat Intelligence](./advanced/threat-intelligence.md)
 
-# Community
+# Resources
 
-- [Community Resources](./community/README.md)
+- [Case Studies](./case-studies/index.md)
+- [Research & Citations](./research/citations.md)
+- [Glossary](./glossary.md)
+- [Community](./community/README.md)
+- [Contributing](./contributing.md)
