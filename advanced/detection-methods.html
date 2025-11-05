@@ -1,0 +1,449 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Detection Methods - Security Awareness: Deepfakes &amp; Prompt Injections</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Comprehensive, research-backed guide to AI security threats">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Security Awareness: Deepfakes &amp; Prompt Injections</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/durellwilson/security-awareness-course" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/durellwilson/security-awareness-course/edit/main/book/src/advanced/detection-methods.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="advanced-detection-methods"><a class="header" href="#advanced-detection-methods">Advanced Detection Methods</a></h1>
+<h2 id="biological-signal-analysis"><a class="header" href="#biological-signal-analysis">Biological Signal Analysis</a></h2>
+<h3 id="blood-flow-detection-intel-fakecatcher"><a class="header" href="#blood-flow-detection-intel-fakecatcher">Blood Flow Detection (Intel FakeCatcher)</a></h3>
+<p><strong>Research</strong>: Umur Ciftci et al. (2020) - "FakeCatcher: Detection of Synthetic Portrait Videos"</p>
+<p>Intel's FakeCatcher analyzes <strong>photoplethysmography (PPG)</strong> signals - subtle color changes in facial pixels caused by blood flow.</p>
+<p><strong>Accuracy</strong>: 96% in real-time
+<strong>Speed</strong>: &lt; 1 second per video</p>
+<pre><code class="language-python"># Conceptual implementation
+def detect_blood_flow(video_frames):
+    """
+    Analyze RGB pixel changes over time
+    Real faces show periodic changes from heartbeat
+    """
+    for frame in video_frames:
+        rgb_signals = extract_rgb_channels(frame)
+        fft_result = fourier_transform(rgb_signals)
+        
+        # Human heartbeat: 0.75-4 Hz
+        if has_periodic_signal(fft_result, 0.75, 4.0):
+            return "REAL"
+    return "FAKE"
+</code></pre>
+<p><strong>Citation</strong>: Ciftci, U., Demir, I., &amp; Yin, L. (2020). FakeCatcher: Detection of Synthetic Portrait Videos using Biological Signals. <em>IEEE Transactions on Pattern Analysis and Machine Intelligence</em>.</p>
+<h2 id="frequency-domain-analysis"><a class="header" href="#frequency-domain-analysis">Frequency Domain Analysis</a></h2>
+<h3 id="dct-coefficient-analysis"><a class="header" href="#dct-coefficient-analysis">DCT Coefficient Analysis</a></h3>
+<p><strong>Research</strong>: Frank et al. (2020) - "Leveraging Frequency Analysis for Deep Fake Image Recognition"</p>
+<p>Deepfakes leave artifacts in <strong>Discrete Cosine Transform (DCT)</strong> coefficients.</p>
+<pre><code class="language-python">import numpy as np
+from scipy.fftpack import dct
+
+def analyze_dct_coefficients(image):
+    """
+    Deepfakes show anomalies in high-frequency components
+    """
+    # Convert to grayscale
+    gray = rgb_to_gray(image)
+    
+    # Apply 2D DCT
+    dct_coefficients = dct(dct(gray.T, norm='ortho').T, norm='ortho')
+    
+    # Analyze high-frequency components
+    high_freq = dct_coefficients[32:, 32:]
+    anomaly_score = np.std(high_freq)
+    
+    return anomaly_score &gt; THRESHOLD
+</code></pre>
+<p><strong>Accuracy</strong>: 92% on FaceForensics++ dataset</p>
+<h2 id="neural-network-approaches"><a class="header" href="#neural-network-approaches">Neural Network Approaches</a></h2>
+<h3 id="xceptionnet-architecture"><a class="header" href="#xceptionnet-architecture">XceptionNet Architecture</a></h3>
+<p><strong>Research</strong>: Rossler et al. (2019) - "FaceForensics++: Learning to Detect Manipulated Facial Images"</p>
+<p>XceptionNet trained on 1.8M images achieves state-of-the-art detection.</p>
+<p><strong>Dataset</strong>: FaceForensics++ (1.8M images, 1,000 videos)
+<strong>Accuracy</strong>:</p>
+<ul>
+<li>Same compression: 99.7%</li>
+<li>Cross-compression: 95.5%</li>
+</ul>
+<pre><code class="language-python">from tensorflow.keras.applications import Xception
+from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
+from tensorflow.keras.models import Model
+
+def build_deepfake_detector():
+    base_model = Xception(weights='imagenet', include_top=False)
+    
+    x = base_model.output
+    x = GlobalAveragePooling2D()(x)
+    x = Dense(1024, activation='relu')(x)
+    predictions = Dense(1, activation='sigmoid')(x)
+    
+    model = Model(inputs=base_model.input, outputs=predictions)
+    return model
+</code></pre>
+<p><strong>Citation</strong>: Rossler, A., et al. (2019). FaceForensics++: Learning to Detect Manipulated Facial Images. <em>IEEE ICCV</em>. DOI: 10.1109/ICCV.2019.00009</p>
+<h2 id="temporal-consistency-analysis"><a class="header" href="#temporal-consistency-analysis">Temporal Consistency Analysis</a></h2>
+<h3 id="frame-to-frame-coherence"><a class="header" href="#frame-to-frame-coherence">Frame-to-Frame Coherence</a></h3>
+<p><strong>Research</strong>: Sabir et al. (2019) - "Recurrent Convolutional Strategies for Face Manipulation Detection"</p>
+<p>Deepfakes often lack temporal consistency between frames.</p>
+<pre><code class="language-python">def analyze_temporal_consistency(video_frames):
+    """
+    Check for unnatural transitions between frames
+    """
+    inconsistencies = []
+    
+    for i in range(len(video_frames) - 1):
+        current = video_frames[i]
+        next_frame = video_frames[i + 1]
+        
+        # Extract facial landmarks
+        landmarks_current = detect_landmarks(current)
+        landmarks_next = detect_landmarks(next_frame)
+        
+        # Calculate movement
+        movement = calculate_distance(landmarks_current, landmarks_next)
+        
+        # Detect unnatural jumps
+        if movement &gt; NATURAL_THRESHOLD:
+            inconsistencies.append(i)
+    
+    return len(inconsistencies) / len(video_frames)
+</code></pre>
+<h2 id="audio-visual-synchronization"><a class="header" href="#audio-visual-synchronization">Audio-Visual Synchronization</a></h2>
+<h3 id="lip-sync-analysis"><a class="header" href="#lip-sync-analysis">Lip-Sync Analysis</a></h3>
+<p><strong>Research</strong>: Chung &amp; Zisserman (2017) - "Out of Time: Automated Lip Sync in the Wild"</p>
+<p>Analyze correlation between audio and visual speech signals.</p>
+<pre><code class="language-python">def detect_lipsync_mismatch(video, audio):
+    """
+    Real videos show strong audio-visual correlation
+    Deepfakes often have misalignment
+    """
+    # Extract visual features
+    lip_movements = extract_lip_movements(video)
+    
+    # Extract audio features (MFCCs)
+    audio_features = extract_mfcc(audio)
+    
+    # Calculate cross-correlation
+    correlation = cross_correlate(lip_movements, audio_features)
+    
+    # Real videos: correlation &gt; 0.7
+    # Deepfakes: correlation &lt; 0.5
+    return correlation &lt; 0.5
+</code></pre>
+<p><strong>Accuracy</strong>: 89% on manipulated videos</p>
+<h2 id="blockchain-verification"><a class="header" href="#blockchain-verification">Blockchain Verification</a></h2>
+<h3 id="content-authenticity-initiative-cai"><a class="header" href="#content-authenticity-initiative-cai">Content Authenticity Initiative (CAI)</a></h3>
+<p><strong>Standard</strong>: C2PA (Coalition for Content Provenance and Authenticity)</p>
+<p>Adobe, Microsoft, BBC, and others developed <strong>C2PA standard</strong> for content authentication.</p>
+<pre><code class="language-python">import hashlib
+import json
+from datetime import datetime
+
+class ContentAuthenticator:
+    def create_manifest(self, content, metadata):
+        """
+        Create tamper-evident manifest
+        """
+        manifest = {
+            'content_hash': hashlib.sha256(content).hexdigest(),
+            'timestamp': datetime.utcnow().isoformat(),
+            'creator': metadata['creator'],
+            'device': metadata['device'],
+            'location': metadata.get('location'),
+            'edits': []
+        }
+        
+        # Sign with private key
+        signature = self.sign(json.dumps(manifest))
+        manifest['signature'] = signature
+        
+        return manifest
+    
+    def verify_chain(self, content, manifest):
+        """
+        Verify content hasn't been tampered
+        """
+        current_hash = hashlib.sha256(content).hexdigest()
+        return current_hash == manifest['content_hash']
+</code></pre>
+<p><strong>Adoption</strong>:</p>
+<ul>
+<li>Adobe Photoshop (2021+)</li>
+<li>Nikon cameras (2022+)</li>
+<li>Canon cameras (2023+)</li>
+</ul>
+<h2 id="ensemble-methods"><a class="header" href="#ensemble-methods">Ensemble Methods</a></h2>
+<h3 id="multi-model-voting"><a class="header" href="#multi-model-voting">Multi-Model Voting</a></h3>
+<p><strong>Research</strong>: Nguyen et al. (2019) - "Multi-task Learning For Detecting and Segmenting Manipulated Facial Images"</p>
+<p>Combine multiple detection methods for higher accuracy.</p>
+<pre><code class="language-python">class EnsembleDetector:
+    def __init__(self):
+        self.models = [
+            XceptionDetector(),
+            DCTAnalyzer(),
+            TemporalAnalyzer(),
+            AudioVisualAnalyzer()
+        ]
+    
+    def detect(self, video):
+        votes = []
+        confidences = []
+        
+        for model in self.models:
+            result, confidence = model.predict(video)
+            votes.append(result)
+            confidences.append(confidence)
+        
+        # Weighted voting
+        weighted_score = sum(v * c for v, c in zip(votes, confidences))
+        weighted_score /= sum(confidences)
+        
+        return weighted_score &gt; 0.5
+</code></pre>
+<p><strong>Accuracy</strong>: 97.3% (ensemble) vs 95.5% (single model)</p>
+<h2 id="detection-accuracy-comparison"><a class="header" href="#detection-accuracy-comparison">Detection Accuracy Comparison</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Method</th><th>Accuracy</th><th>Speed</th><th>Robustness</th></tr></thead><tbody>
+<tr><td>Blood Flow (Intel)</td><td>96%</td><td>Real-time</td><td>High</td></tr>
+<tr><td>XceptionNet</td><td>99.7%</td><td>Fast</td><td>Medium</td></tr>
+<tr><td>DCT Analysis</td><td>92%</td><td>Fast</td><td>High</td></tr>
+<tr><td>Temporal</td><td>89%</td><td>Slow</td><td>Medium</td></tr>
+<tr><td>Ensemble</td><td>97.3%</td><td>Medium</td><td>Very High</td></tr>
+</tbody></table>
+</div>
+<h2 id="research-citations"><a class="header" href="#research-citations">Research Citations</a></h2>
+<ol>
+<li><strong>Ciftci et al. (2020)</strong> - FakeCatcher</li>
+<li><strong>Rossler et al. (2019)</strong> - FaceForensics++, DOI: 10.1109/ICCV.2019.00009</li>
+<li><strong>Frank et al. (2020)</strong> - Frequency Analysis</li>
+<li><strong>Sabir et al. (2019)</strong> - Temporal Consistency</li>
+<li><strong>Chung &amp; Zisserman (2017)</strong> - Lip-Sync Analysis</li>
+<li><strong>C2PA Standard</strong> - https://c2pa.org</li>
+</ol>
+<hr />
+<p><strong>Next</strong>: <a href="./forensic-analysis.html">Forensic Analysis →</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../response/recovery.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../advanced/forensic-analysis.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../response/recovery.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../advanced/forensic-analysis.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

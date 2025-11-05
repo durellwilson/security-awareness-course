@@ -1,0 +1,478 @@
+<!DOCTYPE HTML>
+<html lang="en" class="navy sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Legal Framework - Security Awareness: Deepfakes &amp; Prompt Injections</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="Comprehensive, research-backed guide to AI security threats">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "navy";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "../searchindex.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('navy')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Security Awareness: Deepfakes &amp; Prompt Injections</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/durellwilson/security-awareness-course" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/durellwilson/security-awareness-course/edit/main/book/src/advanced/legal-framework.md" title="Suggest an edit" aria-label="Suggest an edit" rel="edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="legal-framework"><a class="header" href="#legal-framework">Legal Framework</a></h1>
+<h2 id="united-states-legislation"><a class="header" href="#united-states-legislation">United States Legislation</a></h2>
+<h3 id="federal-laws"><a class="header" href="#federal-laws">Federal Laws</a></h3>
+<h4 id="deepfakes-accountability-act-proposed-2023"><a class="header" href="#deepfakes-accountability-act-proposed-2023">DEEPFAKES Accountability Act (Proposed 2023)</a></h4>
+<p><strong>H.R. 5586</strong> - Defending Each and Every Person from False Appearances by Keeping Exploitation Subject to Accountability</p>
+<p><strong>Key Provisions</strong>:</p>
+<ul>
+<li>Mandatory disclosure of synthetic media</li>
+<li>Criminal penalties for malicious deepfakes</li>
+<li>Civil remedies for victims</li>
+<li>Research funding for detection</li>
+</ul>
+<p><strong>Status</strong>: Under consideration in Congress</p>
+<h4 id="section-230-communications-decency-act"><a class="header" href="#section-230-communications-decency-act">Section 230 (Communications Decency Act)</a></h4>
+<p><strong>47 U.S.C. § 230</strong> - Platform liability protection</p>
+<p><strong>Relevant</strong>: Platforms not liable for user-generated deepfakes, BUT:</p>
+<ul>
+<li>Must respond to takedown requests</li>
+<li>Can be liable if they create content</li>
+<li>Good Samaritan provision for moderation</li>
+</ul>
+<h3 id="state-laws"><a class="header" href="#state-laws">State Laws</a></h3>
+<h4 id="california"><a class="header" href="#california">California</a></h4>
+<p><strong>AB 602 (2019)</strong> - Deepfake Pornography</p>
+<ul>
+<li>Criminal offense to create non-consensual intimate deepfakes</li>
+<li>Victims can sue for damages</li>
+<li>2-year statute of limitations</li>
+</ul>
+<p><strong>AB 730 (2019)</strong> - Political Deepfakes</p>
+<ul>
+<li>Illegal to distribute deceptive political deepfakes 60 days before election</li>
+<li>Candidates can seek injunction</li>
+<li>Does not apply to satire/parody</li>
+</ul>
+<h4 id="texas"><a class="header" href="#texas">Texas</a></h4>
+<p><strong>S.B. 751 (2019)</strong> - Deepfake Election Interference</p>
+<ul>
+<li>Class A misdemeanor</li>
+<li>Up to 1 year in jail</li>
+<li>$4,000 fine</li>
+</ul>
+<h4 id="virginia"><a class="header" href="#virginia">Virginia</a></h4>
+<p><strong>§ 18.2-386.2</strong> - Unlawful Dissemination</p>
+<ul>
+<li>Covers deepfake intimate images</li>
+<li>Class 1 misdemeanor</li>
+<li>Enhanced penalties for minors</li>
+</ul>
+<h2 id="european-union"><a class="header" href="#european-union">European Union</a></h2>
+<h3 id="digital-services-act-dsa"><a class="header" href="#digital-services-act-dsa">Digital Services Act (DSA)</a></h3>
+<p><strong>Regulation (EU) 2022/2065</strong> - Effective February 2024</p>
+<p><strong>Requirements</strong>:</p>
+<ul>
+<li>Very Large Online Platforms (VLOPs) must assess deepfake risks</li>
+<li>Transparency in content moderation</li>
+<li>User reporting mechanisms</li>
+<li>Independent audits</li>
+</ul>
+<h3 id="ai-act"><a class="header" href="#ai-act">AI Act</a></h3>
+<p><strong>Regulation (EU) 2024/1689</strong> - World's first comprehensive AI law</p>
+<p><strong>Deepfake Provisions</strong>:</p>
+<ul>
+<li><strong>Article 52</strong>: Transparency obligations
+<ul>
+<li>Must disclose AI-generated content</li>
+<li>Clear labeling required</li>
+<li>Exceptions for law enforcement</li>
+</ul>
+</li>
+</ul>
+<p><strong>Penalties</strong>:</p>
+<ul>
+<li>Up to €35 million or 7% of global turnover</li>
+<li>Tiered based on violation severity</li>
+</ul>
+<h3 id="gdpr-implications"><a class="header" href="#gdpr-implications">GDPR Implications</a></h3>
+<p><strong>Regulation (EU) 2016/679</strong></p>
+<p><strong>Relevant Articles</strong>:</p>
+<ul>
+<li><strong>Article 5</strong>: Data minimization (biometric data)</li>
+<li><strong>Article 9</strong>: Special category data (biometrics)</li>
+<li><strong>Article 17</strong>: Right to erasure (deepfake removal)</li>
+</ul>
+<h2 id="united-kingdom"><a class="header" href="#united-kingdom">United Kingdom</a></h2>
+<h3 id="online-safety-act-2023"><a class="header" href="#online-safety-act-2023">Online Safety Act 2023</a></h3>
+<p><strong>Key Provisions</strong>:</p>
+<ul>
+<li>Duty of care for platforms</li>
+<li>Remove illegal deepfakes</li>
+<li>Protect children from harmful content</li>
+<li>Ofcom enforcement</li>
+</ul>
+<p><strong>Penalties</strong>: Up to £18 million or 10% of global turnover</p>
+<h2 id="international-standards"><a class="header" href="#international-standards">International Standards</a></h2>
+<h3 id="unesco-recommendation-on-ai-ethics-2021"><a class="header" href="#unesco-recommendation-on-ai-ethics-2021">UNESCO Recommendation on AI Ethics (2021)</a></h3>
+<p><strong>Principles</strong>:</p>
+<ol>
+<li>Proportionality and Do No Harm</li>
+<li>Safety and Security</li>
+<li>Fairness and Non-discrimination</li>
+<li>Sustainability</li>
+<li>Right to Privacy</li>
+<li>Human Oversight</li>
+<li>Transparency and Explainability</li>
+<li>Responsibility and Accountability</li>
+<li>Awareness and Literacy</li>
+<li>Multi-stakeholder Governance</li>
+</ol>
+<h2 id="civil-remedies"><a class="header" href="#civil-remedies">Civil Remedies</a></h2>
+<h3 id="defamation"><a class="header" href="#defamation">Defamation</a></h3>
+<p><strong>Elements</strong> (US):</p>
+<ol>
+<li>False statement of fact</li>
+<li>Published to third party</li>
+<li>Fault (negligence or malice)</li>
+<li>Damages</li>
+</ol>
+<p><strong>Deepfake Application</strong>: Victim can sue creator/distributor</p>
+<h3 id="right-of-publicity"><a class="header" href="#right-of-publicity">Right of Publicity</a></h3>
+<p><strong>Protection</strong>: Unauthorized use of name, image, likeness</p>
+<p><strong>Damages</strong>:</p>
+<ul>
+<li>Actual damages</li>
+<li>Profits from unauthorized use</li>
+<li>Punitive damages (if malicious)</li>
+</ul>
+<h3 id="intentional-infliction-of-emotional-distress"><a class="header" href="#intentional-infliction-of-emotional-distress">Intentional Infliction of Emotional Distress</a></h3>
+<p><strong>Elements</strong>:</p>
+<ol>
+<li>Extreme and outrageous conduct</li>
+<li>Intentional or reckless</li>
+<li>Causes severe emotional distress</li>
+</ol>
+<p><strong>Deepfake Application</strong>: Non-consensual intimate deepfakes</p>
+<h2 id="criminal-charges"><a class="header" href="#criminal-charges">Criminal Charges</a></h2>
+<h3 id="identity-theft"><a class="header" href="#identity-theft">Identity Theft</a></h3>
+<p><strong>18 U.S.C. § 1028</strong> - Fraud and Related Activity</p>
+<p><strong>Penalties</strong>:</p>
+<ul>
+<li>Up to 15 years imprisonment</li>
+<li>Fines</li>
+<li>Restitution to victims</li>
+</ul>
+<h3 id="wire-fraud"><a class="header" href="#wire-fraud">Wire Fraud</a></h3>
+<p><strong>18 U.S.C. § 1343</strong></p>
+<p><strong>Application</strong>: Using deepfakes in financial scams</p>
+<p><strong>Penalties</strong>:</p>
+<ul>
+<li>Up to 20 years imprisonment</li>
+<li>Up to 30 years if affects financial institution</li>
+</ul>
+<h3 id="cyberstalking"><a class="header" href="#cyberstalking">Cyberstalking</a></h3>
+<p><strong>18 U.S.C. § 2261A</strong></p>
+<p><strong>Application</strong>: Using deepfakes to harass</p>
+<p><strong>Penalties</strong>:</p>
+<ul>
+<li>Up to 5 years imprisonment</li>
+<li>Enhanced if causes bodily injury</li>
+</ul>
+<h2 id="platform-policies"><a class="header" href="#platform-policies">Platform Policies</a></h2>
+<h3 id="youtube"><a class="header" href="#youtube">YouTube</a></h3>
+<p><strong>Policy</strong>: Synthetic media must be disclosed</p>
+<ul>
+<li>Label required for realistic altered content</li>
+<li>Removal if violates privacy, harassment policies</li>
+<li>Appeals process available</li>
+</ul>
+<h3 id="meta-facebookinstagram"><a class="header" href="#meta-facebookinstagram">Meta (Facebook/Instagram)</a></h3>
+<p><strong>Policy</strong>:</p>
+<ul>
+<li>Remove deepfake videos likely to mislead</li>
+<li>Exception: Satire/parody</li>
+<li>Third-party fact-checkers review</li>
+</ul>
+<h3 id="twitterx"><a class="header" href="#twitterx">Twitter/X</a></h3>
+<p><strong>Policy</strong>:</p>
+<ul>
+<li>Label synthetic/manipulated media</li>
+<li>Warning before sharing</li>
+<li>Removal if causes harm</li>
+</ul>
+<h3 id="tiktok"><a class="header" href="#tiktok">TikTok</a></h3>
+<p><strong>Policy</strong>:</p>
+<ul>
+<li>Prohibits misleading deepfakes</li>
+<li>Synthetic media effects must be disclosed</li>
+<li>Removal for non-consensual intimate content</li>
+</ul>
+<h2 id="legal-precedents"><a class="header" href="#legal-precedents">Legal Precedents</a></h2>
+<h3 id="case-people-v-doe-california-2020"><a class="header" href="#case-people-v-doe-california-2020">Case: People v. Doe (California, 2020)</a></h3>
+<p><strong>Facts</strong>: Defendant created deepfake pornography of ex-partner</p>
+<p><strong>Outcome</strong>: Convicted under AB 602</p>
+<ul>
+<li>1 year jail</li>
+<li>$5,000 fine</li>
+<li>Restraining order</li>
+</ul>
+<h3 id="case-rana-ayyub-india-2018"><a class="header" href="#case-rana-ayyub-india-2018">Case: Rana Ayyub (India, 2018)</a></h3>
+<p><strong>Facts</strong>: Journalist targeted with deepfake pornography</p>
+<p><strong>Outcome</strong>:</p>
+<ul>
+<li>International attention</li>
+<li>Led to policy changes</li>
+<li>Criminal investigation ongoing</li>
+</ul>
+<h2 id="takedown-procedures"><a class="header" href="#takedown-procedures">Takedown Procedures</a></h2>
+<h3 id="dmca-digital-millennium-copyright-act"><a class="header" href="#dmca-digital-millennium-copyright-act">DMCA (Digital Millennium Copyright Act)</a></h3>
+<p><strong>17 U.S.C. § 512</strong> - Safe harbor provisions</p>
+<p><strong>Process</strong>:</p>
+<ol>
+<li>Send takedown notice to platform</li>
+<li>Platform removes content (24-48 hours)</li>
+<li>Counter-notice possible</li>
+<li>Restoration after 10-14 days if no lawsuit</li>
+</ol>
+<p><strong>Template</strong>:</p>
+<pre><code>To: [Platform DMCA Agent]
+From: [Your name]
+Date: [Date]
+
+I am the copyright owner of [original work].
+
+The following URL contains infringing material:
+[URL]
+
+I have a good faith belief this use is not authorized.
+
+Under penalty of perjury, I swear this notice is accurate.
+
+Signature: [Your signature]
+</code></pre>
+<h2 id="research-citations"><a class="header" href="#research-citations">Research Citations</a></h2>
+<ol>
+<li><strong>H.R. 5586</strong> - DEEPFAKES Accountability Act</li>
+<li><strong>Regulation (EU) 2024/1689</strong> - EU AI Act</li>
+<li><strong>Regulation (EU) 2022/2065</strong> - Digital Services Act</li>
+<li><strong>Online Safety Act 2023</strong> - UK Parliament</li>
+<li><strong>UNESCO (2021)</strong> - Recommendation on AI Ethics</li>
+</ol>
+<hr />
+<p><strong>Next</strong>: <a href="./industry-standards.html">Industry Standards →</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../advanced/forensic-analysis.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../advanced/industry-standards.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../advanced/forensic-analysis.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../advanced/industry-standards.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>
