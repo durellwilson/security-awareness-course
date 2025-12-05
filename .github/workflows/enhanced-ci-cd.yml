@@ -44,14 +44,7 @@ jobs:
         with:
           scan-type: 'fs'
           scan-ref: '.'
-          format: 'sarif'
-          output: 'trivy-results.sarif'
-      
-      - name: Upload Trivy Results
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: 'trivy-results.sarif'
-          wait-for-processing: false
+          format: 'table'
 
   build:
     runs-on: ubuntu-latest
@@ -164,3 +157,4 @@ jobs:
           echo "| Quality | ${{ needs.quality.result }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Tests | ${{ needs.test.result }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Deploy | ${{ needs.deploy.result }} |" >> $GITHUB_STEP_SUMMARY
+
