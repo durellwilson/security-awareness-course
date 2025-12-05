@@ -3,7 +3,6 @@ title = "Security Awareness: Deepfakes & Prompt Injections"
 authors = ["Detroit Security Community"]
 description = "Comprehensive, research-backed guide to AI security threats"
 language = "en"
-multilingual = false
 src = "src"
 
 [build]
