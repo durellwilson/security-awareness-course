@@ -36,10 +36,18 @@
 - [Industry Standards](./advanced/industry-standards.md)
 - [Threat Intelligence](./advanced/threat-intelligence.md)
 
+# Learning & Assessment
+
+- [Deepfakes Quiz](./quizzes/deepfakes-quiz.md)
+- [Prompt Injection Quiz](./quizzes/prompt-injection-quiz.md)
+- [Study Guide](./resources/study-guide.md)
+- [Code Snippets](./resources/code-snippets.md)
+
 # Resources
 
 - [Case Studies](./case-studies/index.md)
 - [Research & Citations](./research/citations.md)
+- [2025-2026 Updates](./research/2025-2026-updates.md)
 - [Glossary](./glossary.md)
 - [Community](./community/README.md)
 - [Contributing](./contributing.md)
