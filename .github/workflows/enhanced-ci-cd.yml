@@ -70,7 +70,7 @@ jobs:
           mdbook test || true
       
       - name: Upload Build Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: book-build
           path: book/book/
@@ -123,7 +123,7 @@ jobs:
       - uses: actions/checkout@v3
       
       - name: Download Build Artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: book-build
           path: book/book/
@@ -157,4 +157,5 @@ jobs:
           echo "| Quality | ${{ needs.quality.result }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Tests | ${{ needs.test.result }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Deploy | ${{ needs.deploy.result }} |" >> $GITHUB_STEP_SUMMARY
+
 
