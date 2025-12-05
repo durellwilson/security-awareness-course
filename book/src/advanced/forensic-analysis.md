@@ -127,6 +127,32 @@ def analyze_compression_artifacts(video_path):
     return np.std(artifact_scores)
 ```
 
+### Biological Signal Detection
+
+**Method**: Blood flow analysis (used by Intel FakeCatcher)
+
+```python
+def detect_blood_flow_inconsistencies(video_path):
+    """
+    Real faces show subtle blood flow changes
+    Deepfakes often lack this biological signal
+    """
+    cap = cv2.VideoCapture(video_path)
+    frames = []
+    
+    while cap.isOpened():
+        ret, frame = cap.read()
+        if not ret:
+            break
+        frames.append(frame)
+    
+    # Analyze subtle color changes in face region
+    # Real faces show periodic changes from blood flow
+    # Deepfakes typically show static patterns
+    
+    return analyze_temporal_color_patterns(frames)
+```
+
 ## Legal Admissibility
 
 ### Daubert Standard (US Courts)
@@ -149,29 +175,38 @@ def analyze_compression_artifacts(video_path):
 - Case Number: [ID]
 - Date: [YYYY-MM-DD]
 - Investigator: [Name, Credentials]
+- Qualifications: [Certifications, Experience]
 
 ### Evidence Description
 - File: [filename]
 - Hash (SHA-256): [hash]
 - Size: [bytes]
 - Source: [origin]
+- Acquisition Method: [how obtained]
 
 ### Analysis Methods
 1. Method: [Name]
    - Tool: [Software version]
    - Standard: [ISO/IEEE reference]
    - Result: [Finding]
+   - Confidence: [percentage]
 
 ### Findings
 - Conclusion: [AUTHENTIC / MANIPULATED / INCONCLUSIVE]
-- Confidence: [percentage]
+- Confidence Level: [percentage]
 - Supporting Evidence: [details]
+- Alternative Explanations: [considered]
 
 ### Chain of Custody
-[Complete log]
+[Complete log with timestamps and signatures]
+
+### Limitations
+- Known limitations of methods
+- Assumptions made
+- Scope of analysis
 
 ### Signature
-[Digital signature]
+[Digital signature with timestamp]
 ```
 
 ## Statistical Analysis
@@ -240,16 +275,45 @@ class TimelineAnalyzer:
         return events
 ```
 
+## Multimodal Deepfake Detection
+
+**Approach**: Combining multiple detection methods
+
+```python
+class MultimodalDetector:
+    def analyze(self, video_path):
+        """
+        Combine spatial, temporal, and frequency analysis
+        """
+        results = {
+            'spatial': self.spatial_analysis(video_path),
+            'temporal': self.temporal_analysis(video_path),
+            'frequency': self.frequency_analysis(video_path),
+            'biological': self.biological_signal_analysis(video_path)
+        }
+        
+        # Aggregate results
+        confidence = self.aggregate_results(results)
+        return {
+            'verdict': 'MANIPULATED' if confidence > 0.7 else 'AUTHENTIC',
+            'confidence': confidence,
+            'details': results
+        }
+```
+
 ## Research Citations
 
 1. **Verdoliva, L. (2020)** - Media Forensics Overview
    - DOI: 10.1109/JSTSP.2020.3002101
 
-2. **ISO/IEC 27037:2012** - Digital Evidence Guidelines
+2. **Tolosana, R., et al. (2020)** - DeepFakes and Beyond: A Survey
+   - DOI: 10.1016/j.inffus.2020.06.014
 
-3. **Matern et al. (2019)** - Visual Artifacts
+3. **ISO/IEC 27037:2012** - Digital Evidence Guidelines
 
-4. **Daubert v. Merrell Dow** - 509 U.S. 579 (1993)
+4. **Matern et al. (2019)** - Visual Artifacts
+
+5. **Daubert v. Merrell Dow** - 509 U.S. 579 (1993)
 
 ---
 
